@@ -3,30 +3,36 @@ let dados = JSON.parse(fs.readFileSync('dados.json', 'utf-8'))
 
 function menorValor(){
 	var menor = "";
+	var dia = ""
 	for(var indice = 0; indice < dados.length; indice++){
 		if(dados[indice].faturamento != 0){
 			if(dados[indice-1].faturamento < dados[indice].faturamento){
 				menor = dados[indice-1].faturamento
+				dia = dados[indice-1].dia
 			}else{
 				menor = dados[indice].faturamento
+				dia = dados[indice].dia
 			}
 		}
 	}
-	console.log(`O menor faturamento do mês foi: R$ ${menor}`)
+	console.log(`O menor faturamento do mês foi de R$ ${menor} no dia ${dia}`)
 }
 
 function maiorValor(){
 	var maior = "";
+	var dia = ""
 	for(var indice = 0; indice < dados.length; indice++){
 		if(dados[indice].faturamento != 0){
 			if(dados[indice-1].faturamento > dados[indice].faturamento){
 				maior = dados[indice-1].faturamento
+				dia = dados[indice-1].dia
 			}else{
 				maior = dados[indice].faturamento
+				dia = dados[indice].dia
 			}
 		}
 	}
-	console.log(`O maior faturamento do mês foi: R$ ${maior}`)
+	console.log(`O maior faturamento do mês foi de R$ ${maior} no dia ${dia}`)
 }
 
 function media() {
